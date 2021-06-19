@@ -6,4 +6,5 @@ extend('secret', {
   message: 'This is not the magic word',
 })
 
+// 注册全局组件
 Vue.component('ValidationProvider', ValidationProvider)

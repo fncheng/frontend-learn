@@ -19,6 +19,10 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  {
+    path: '/vee-validate',
+    component: () => import('../views/VeeValidate/Index.vue'),
+  },
 ]
 
 const router = new VueRouter({
