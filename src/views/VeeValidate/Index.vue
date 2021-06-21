@@ -2,7 +2,7 @@
   <div>
     <validation-provider rules="secret" v-slot="{ errors }">
       <input type="text" v-model="email" />
-      <span>{{ errors[0] }}</span>
+      <span class="error">{{ errors[0] }}</span>
     </validation-provider>
   </div>
 </template>
@@ -17,4 +17,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.error {
+  color: red;
+}
+</style>
