@@ -1,5 +1,7 @@
 const path = require('path')
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// 预渲染https://github.com/chrisvfritz/prerender-spa-plugin
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 function resolve(dir) {
   return path.resolve(__dirname, dir)
@@ -36,10 +38,16 @@ module.exports = {
 
   // 函数模式
   configureWebpack: (config) => {
+    config.resolve.alias['@'] = resolve('src')
+    config.plugins.push(
+      new PrerenderSPAPlugin({
+        staticDir: resolve('dist'),
+        routes: ['/about'],
+      })
+    )
     if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...
       //路径别名设置
-      config.resolve.alias['@'] = resolve('src')
       config.optimization.minimizer.push(
         new UglifyJsPlugin({
           uglifyOptions: {
@@ -53,6 +61,7 @@ module.exports = {
         })
       )
     }
+    // console.log('config: ', config)
   },
   productionSourceMap: false,
   devServer: {
