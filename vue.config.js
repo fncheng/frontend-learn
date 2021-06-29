@@ -7,7 +7,7 @@ function resolve(dir) {
   return path.resolve(__dirname, dir)
 }
 
-// console.log(process.env)
+// console.log(process.env.NODE_ENV)
 // console.log(process.env.ENV)
 // console.log(process.env.VUE_APP_BASE_API)
 
