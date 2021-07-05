@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueCompositionAPI from '@vue/composition-api'
+import '@/styles/index.scss' // global css
 
+Vue.use(VueCompositionAPI)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 

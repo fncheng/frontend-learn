@@ -39,6 +39,8 @@ module.exports = {
   // 函数模式
   configureWebpack: (config) => {
     config.resolve.alias['@'] = resolve('src')
+    config.resolve.alias['@router'] = resolve('src/router')
+    config.resolve.alias['@store'] = resolve('src/store')
     config.plugins.push(
       new PrerenderSPAPlugin({
         staticDir: resolve('dist'),
