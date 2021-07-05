@@ -7,8 +7,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    redirect: '/home/first',
     component: Home,
+    children: [
+      {
+        path: '/home/first',
+        component: () => import('@/views/tabs/first.vue'),
+      },
+      {
+        path: '/home/second',
+        component: () => import('@/views/tabs/second.vue'),
+      },
+    ],
   },
   {
     path: '/about',
@@ -25,4 +35,10 @@ const router = new VueRouter({
   routes,
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.path === from.path) {
+    next()
+  }
+  next()
+})
 export default router

@@ -1,9 +1,14 @@
 <template>
   <div class="home">
-    <div>
-      1
-      <!-- 123 -->
-    </div>
+    <el-tabs v-model="activeName" @tab-click="tabClick">
+      <el-tab-pane
+        v-for="item in tabs"
+        :key="item.name"
+        :label="item.label"
+        :name="item.name"
+      ></el-tab-pane>
+      <router-view></router-view>
+    </el-tabs>
   </div>
 </template>
 
@@ -12,9 +17,22 @@
 
 export default {
   name: 'Home',
-  components: {},
-  created() {
-    console.log('created')
+  data() {
+    return {
+      activeName: 'first',
+      tabs: [
+        { name: 'first', label: '用户管理' },
+        { name: 'second', label: '配置管理' },
+        { name: 'third', label: '角色管理' },
+      ],
+    }
+  },
+  methods: {
+    tabClick(e) {
+      this.$router.push(e.name).catch(() => {
+        return
+      })
+    },
   },
 }
 </script>
