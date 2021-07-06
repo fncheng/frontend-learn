@@ -46,6 +46,10 @@ const routes = [
     component: Layout,
     children: [
       { path: '/echarts/bar', component: () => import('@/views/echarts/bar') },
+      {
+        path: '/echarts/line',
+        component: () => import('@/views/echarts/line'),
+      },
     ],
   },
 ]
