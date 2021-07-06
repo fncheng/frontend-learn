@@ -41,6 +41,13 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/echarts',
+    component: Layout,
+    children: [
+      { path: '/echarts/bar', component: () => import('@/views/echarts/bar') },
+    ],
+  },
 ]
 
 const router = new VueRouter({

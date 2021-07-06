@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <Sidebar class="sidebar-container"></Sidebar>
-    <AppMain />
+    <AppMain class="app-main" />
   </div>
 </template>
 
@@ -17,10 +17,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
 }
 </style>
