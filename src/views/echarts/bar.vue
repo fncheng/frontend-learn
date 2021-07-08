@@ -6,6 +6,7 @@
 import { onMounted, ref } from '@vue/composition-api'
 import * as echarts from 'echarts'
 export default {
+  name: 'Bar',
   setup() {
     const container = ref(null)
     const options = {
