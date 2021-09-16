@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <div>
-      1
-      <!-- 123 -->
+      <div class="p-3 bg-green-500 text-white">Hello Tailwind CSS</div>
     </div>
+    <div class="w-10 h-10 bg-yellow-500 flex"></div>
   </div>
 </template>
 

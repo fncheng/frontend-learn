@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueCompositionAPI from '@vue/composition-api'
+import '@/assets/tailwindcss.css'
 
 Vue.use(VueCompositionAPI)
 Vue.use(ElementUI)
