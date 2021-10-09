@@ -1,6 +1,7 @@
 <script>
 // import { computed } from "@vue/composition-api";
 export default {
+  name: 'Cat',
   props: {
     mouse: {
       type: Object,

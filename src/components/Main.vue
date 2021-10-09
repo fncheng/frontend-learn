@@ -2,10 +2,7 @@
 import Mouse from './Mouse'
 import Cat from './Cat'
 export default {
-  components: {
-    Mouse,
-    Cat,
-  },
+  name: 'Main',
   methods: {
     doMouse() {
       console.log(123)
