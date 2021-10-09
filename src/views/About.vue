@@ -1,16 +1,14 @@
-<template>
-  <div class="about">
-    <Main />
-  </div>
-</template>
-
 <script>
 import Main from '../components/Main.vue'
 
 export default {
   name: 'App',
-  components: {
-    Main,
+  render() {
+    return (
+      <div class="about">
+        <Main nice={132} myName={'this is myName'} />
+      </div>
+    )
   },
 }
 </script>

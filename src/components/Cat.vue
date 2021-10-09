@@ -1,7 +1,3 @@
-<template>
-  <p>当前鼠标的位置是({{ mouse.x }},{{ mouse.y }})</p>
-</template>
-
 <script>
 // import { computed } from "@vue/composition-api";
 export default {
@@ -10,10 +6,13 @@ export default {
       type: Object,
     },
   },
-  // setup(props) {
-  //   const mouse = computed(() => props.p_mouse);
-  //   return { mouse };
-  // },
+  render() {
+    return (
+      <p>
+        当前鼠标的位置是({this.mouse.x},{this.mouse.y})
+      </p>
+    )
+  },
 }
 </script>
 

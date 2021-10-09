@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <h1>移动鼠标！</h1>
-    <Mouse>
-      <template v-slot:default="scope">
-        {{ scope.state }}
-        <Cat :mouse="scope.state" />
-      </template>
-    </Mouse>
-  </div>
-</template>
-
 <script>
 import Mouse from './Mouse'
 import Cat from './Cat'
@@ -17,6 +5,20 @@ export default {
   components: {
     Mouse,
     Cat,
+  },
+  methods: {
+    doMouse() {
+      console.log(123)
+    },
+  },
+  render() {
+    return (
+      <div>
+        <h1>移动鼠标！</h1>
+        {this.$attrs.myName}
+        <Mouse render={(mouse) => <Cat mouse={mouse} />}></Mouse>
+      </div>
+    )
   },
 }
 </script>

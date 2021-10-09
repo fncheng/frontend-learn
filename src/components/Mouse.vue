@@ -1,9 +1,3 @@
-<template>
-  <div style="height: 100vh" @click="doClick" @mousemove="doMouseMove">
-    <slot :state="state"></slot>
-  </div>
-</template>
-
 <script>
 import { debounce } from 'lodash-es'
 import { reactive } from '@vue/composition-api'
@@ -47,9 +41,17 @@ export default {
     doClick: debounce(() => {
       console.log('do click')
     }, 300),
-    // doMouseMove: debounce(function () {
-    //   console.log(this.state)
-    // }, 300),
+  },
+  render() {
+    return (
+      <div
+        style="height: 100vh"
+        onClick={this.doClick}
+        onMousemove={this.doMouseMove}
+      >
+        {this.$attrs.render(this.state)}
+      </div>
+    )
   },
 }
 </script>
