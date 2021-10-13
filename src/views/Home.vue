@@ -5,15 +5,35 @@
     <div>{{ a }}</div>
     <div>{{ arr }}</div>
     <div>{{ arr2 }}</div>
+    <Child>
+      <template v-slot:header>
+        <div>this is header</div>
+      </template>
+      <div>this is body</div>
+    </Child>
+    <user :obj="'123'">
+      <template v-slot:default="slotProps">
+        {{ slotProps }}
+        {{ slotProps.obj }}
+      </template>
+    </user>
+
+    <user v-slot="slotProps">
+      {{ slotProps }}
+    </user>
+    <user></user>
   </div>
 </template>
 
 <script>
 import { reactive, ref } from '@vue/composition-api'
+import Child from '../components/Child.vue'
+import User from '../components/User.vue'
 // @ is an alias to /src
 
 export default {
   name: 'Home',
+  components: { Child, User },
   data() {
     return {
       obj1: {

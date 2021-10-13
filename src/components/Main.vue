@@ -2,7 +2,6 @@
 import Mouse from './Mouse'
 import Cat from './Cat.vue'
 import { ref } from '@vue/composition-api'
-import ChildVue from './Child.vue'
 import UserVue from './User.vue'
 export default {
   name: 'Main',
@@ -25,15 +24,18 @@ export default {
     const Dog = () => <h3>{this.name}</h3>
     return (
       <div>
-        <UserVue obj={'this is obj1'}>
-          {(props) => <h3>{props.obj}</h3>}
-        </UserVue>
-        <ChildVue>
-          <div slot="header">this is body</div>
-          <div>this is body</div>
-          <div slot="footer">this is footer</div>
-        </ChildVue>
         <Dog></Dog>
+        <UserVue
+          obj="this is obj1"
+          scopedSlots={{
+            default: (props) => {
+              console.log(props)
+              return <div style="backgroundColor:orange">{props.obj}今年</div>
+            },
+          }}
+        >
+          <div slot="header">header</div>
+        </UserVue>
         <h1>移动鼠标！</h1>
         {this.$attrs.myName}
         <Mouse
