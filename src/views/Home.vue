@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-      Jenkins构建
+      Jenkins构建，触发github webhooks
       <!-- 123 -->
     </div>
   </div>
