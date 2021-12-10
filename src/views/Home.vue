@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-      1
+      Jenkins构建
       <!-- 123 -->
     </div>
   </div>
