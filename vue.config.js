@@ -12,6 +12,8 @@ function resolve(dir) {
 // console.log(process.env.VUE_APP_BASE_API)
 
 module.exports = {
+  publicPath: '/static/',
+  outputDir: 'dist/static',
   // 对象模式
   // configureWebpack: {
   //   resolve: {
@@ -68,5 +70,6 @@ module.exports = {
     compress: true,
     port: 8888,
     open: true,
+    // proxy: 'http://localhost:3000',
   },
 }
