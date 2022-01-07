@@ -1,7 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import { getRoutes } from '../api/home'
 
+async function initRoutes() {
+  let res = await getRoutes()
+  if (res.status === 200) {
+    console.log(res.data)
+  }
+}
+initRoutes()
 Vue.use(VueRouter)
 
 const routes = [
