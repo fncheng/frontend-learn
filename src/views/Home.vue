@@ -29,6 +29,7 @@
 import { reactive, ref } from '@vue/composition-api'
 import Child from '../components/Child.vue'
 import User from '../components/User.vue'
+import { getTest } from '@/api/home'
 // @ is an alias to /src
 
 export default {
@@ -42,6 +43,10 @@ export default {
       },
       arr2: [],
     }
+  },
+  async created() {
+    let res = await getTest()
+    console.log('test', res)
   },
   setup() {
     let a = ref([])

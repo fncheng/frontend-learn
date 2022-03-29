@@ -7,3 +7,11 @@ export function getRoutes(data) {
     params: data,
   })
 }
+
+export function getTest(data) {
+  return $http({
+    url: '/test',
+    method: 'get',
+    params: data,
+  })
+}

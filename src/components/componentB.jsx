@@ -1,4 +1,8 @@
 /* eslint-disable */
+import {useCounterStore} from '@/store/counter'
+
+const counter = useCounterStore()
+console.log('counter.count: ', counter.count);
 
 export default {
   name: 'ComponentB',

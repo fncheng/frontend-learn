@@ -6,6 +6,7 @@ import UserVue from './User.vue'
 import ComponentA from './componentA.jsx'
 import ComponentB from './componentB.jsx'
 import ComponentC from './componentC.jsx'
+import Pinia from './Pinia.vue'
 
 export default {
   name: 'Main',
@@ -31,7 +32,7 @@ export default {
       <div>
         <Dog></Dog>
         <ComponentA name={'zs'}></ComponentA>
-        <ComponentB name={'zs'}></ComponentB>
+        <ComponentB name={'zs'} />
         <ComponentC name={'zs'}></ComponentC>
         <UserVue
           obj="this is obj1"
@@ -50,6 +51,7 @@ export default {
           render={(mouse) => <Cat mouse={mouse} />}
           ondo-input={this.doInput}
         ></Mouse>
+        <Pinia />
       </div>
     )
   },
