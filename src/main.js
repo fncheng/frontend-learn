@@ -7,6 +7,7 @@ import store from './store'
 import VueCompositionAPI from '@vue/composition-api'
 import { createPinia, PiniaVuePlugin } from 'pinia'
 import './mock/index'
+import '@/assets/tailwindcss.css'
 
 Vue.use(VueCompositionAPI)
 Vue.use(ElementUI)
