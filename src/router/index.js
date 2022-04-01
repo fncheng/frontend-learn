@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import { getRoutes } from '../api/home'
+// import { getRoutes } from '../api/home'
 
-async function initRoutes() {
-  let res = await getRoutes()
-  if (res.status === 200) {
-    console.log(res.data)
-  }
-}
-initRoutes()
+// async function initRoutes() {
+//   let res = await getRoutes()
+//   if (res.status === 200) {
+//     console.log(res.data)
+//   }
+// }
+// initRoutes()
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,6 +31,11 @@ const routes = [
     path: '/third',
     name: 'Third',
     component: () => import('../views/Third.vue'),
+  },
+  {
+    path: '/tailwindcss',
+    name: 'TailWindCSS',
+    component: () => import('../views/tailwindcss/index'),
   },
 ]
 

@@ -13,8 +13,5 @@
     "config",
     "dist",
     "static",
-  ],
-  "include": [
-    "src/**/*"
   ]
 }
