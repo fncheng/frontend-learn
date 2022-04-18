@@ -1,11 +1,17 @@
 <template>
-  <div class="grid grid-cols-3 wrapper">
-    <div class="box1 bg-green-500">1</div>
-    <div class="box2">2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
+  <div>
+    <div class="grid grid-cols-3 wrapper">
+      <div class="box1 bg-green-500">1</div>
+      <div class="box2">2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+
+    <div>
+      <span class="w-4 h-4">12324122142</span>
+    </div>
   </div>
 </template>
 

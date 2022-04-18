@@ -58,6 +58,7 @@ export default {
           class="input"
           onInput={this.handleInput}
         ></el-input>
+        <el-input vModel={this.name}></el-input>
         <el-table
           data={this.tableData}
           style="width:500px"
