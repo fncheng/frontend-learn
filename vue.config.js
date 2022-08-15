@@ -12,7 +12,7 @@ function resolve(dir) {
 // console.log(process.env.VUE_APP_BASE_API)
 
 module.exports = {
-  publicPath: '/static/',
+  publicPath: '/app/',
   outputDir: 'dist/static',
   // 对象模式
   // configureWebpack: {
