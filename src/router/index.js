@@ -28,6 +28,14 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
+    path: '/iframe',
+    name: 'Iframe',
+    meta: {
+      iframe: 1,
+      url: 'http://192.168.0.183:8080/hiip-portal/a/sso/showSysIndex',
+    },
+  },
+  {
     path: '/third',
     name: 'Third',
     component: () => import('../views/Third.vue'),
@@ -43,4 +51,10 @@ const router = new VueRouter({
   routes,
 })
 
+router.addRoute({
+  path: '/some',
+  name: 'Some',
+  component: () => import('../views/Third.vue'),
+})
+console.log(router.options.routes)
 export default router

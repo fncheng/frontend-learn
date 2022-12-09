@@ -9,7 +9,7 @@
     </div>
 
     <div>
-      <span class="w-4 h-4">12324122142</span>
+      <span class="w-4 h-4 border-2 bg-gray-50 bottom-4">12324122142</span>
     </div>
     <p class="inline-flex items-center">
       <input
@@ -35,9 +35,6 @@
       <span class="w-8">casdasdasdassdas</span>
       <label for="" class="w-8">dasdasdasdasdasdsa测试多撒点哈三大11</label>
     </div>
-    <el-button @click="handleClick">无操作</el-button>
-    <el-button @click="debounceClick">防抖</el-button>
-    <el-button @click="throttleClick">节流</el-button>
     <el-form inline>
       <el-form-item class="w-64" label="请输入姓名">
         <el-input v-model="name"></el-input>
@@ -49,25 +46,9 @@
         <el-input v-model="name"></el-input>
       </el-form-item>
     </el-form>
-    <table>
-      <tr>
-        <td>111111</td>
-        <td>222222</td>
-        <td>333333</td>
-      </tr>
-    </table>
-    <div style="width: 800px">
-      <table>
-        <tr>
-          <td>
-            <div style="width: 100%" class="flex">
-              <div class="w-8">111</div>
-              <div class="flex-1">222</div>
-              <div class="w-8">333</div>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="w-full h-12">
+      <!-- <div>123</div> -->
+      <div class="float-right w-64 h-12 bg-red-400">123</div>
     </div>
   </div>
 </template>
