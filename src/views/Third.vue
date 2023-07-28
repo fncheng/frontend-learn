@@ -1,21 +1,25 @@
 <template>
-  <div>
-    <div>{{ count }}</div>
-    <button @click="handleClick">count++</button>
-    <ThirdChild class="mt-4" msg="123" />
+  <div class="w-[600px] bg-red-300">
+    <el-form :model="ruleForm" :rules="rules">
+      <el-form-item label="姓名" prop="name">
+        <el-input></el-input>
+      </el-form-item>
+      <el-form-item label="年龄" prop="age">
+        <el-input></el-input>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
-import ThirdChild from './ThirdChild.vue'
 export default {
   name: 'Third',
-  components: {
-    ThirdChild,
-  },
   data() {
     return {
-      count: 0,
+      ruleForm: {
+        name: '',
+        age: 0,
+      },
     }
   },
   methods: {
