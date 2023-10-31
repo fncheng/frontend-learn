@@ -1,102 +1,121 @@
 <template>
-  <div>
-    <div class="grid grid-cols-3 wrapper">
-      <div class="box2">2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-    </div>
-
-    <div>
-      <span class="w-4 h-4 border-2 bg-gray-50 bottom-4">12324122142</span>
-    </div>
-    <p class="inline-flex items-center">
-      <input
-        class="w-4 h-4"
-        type="checkbox"
-        id="cbox1"
-        value="first_checkbox"
-        v-model="cbox1"
-      />
-      <label for="cbox1">测试1</label>
-    </p>
-    <p>
-      <input type="checkbox" id="cbox2" v-model="cbox2" checked="checked" />
-      <label for="cbox2">测试2</label>
-    </p>
-    <p>
-      <el-checkbox v-model="cbox3">测试3</el-checkbox>
-    </p>
-    <el-row>
-      <el-col :span="8"></el-col>
-    </el-row>
-    <div class="w-16">
-      <span class="w-8">casdasdasdassdas</span>
-      <label for="" class="w-8">dasdasdasdasdasdsa测试多撒点哈三大11</label>
-    </div>
-    <el-form inline>
-      <el-form-item class="w-64" label="请输入姓名">
-        <el-input v-model="name"></el-input>
-      </el-form-item>
-      <el-form-item class="w-64" label="请输入姓名">
-        <el-input v-model="name"></el-input>
-      </el-form-item>
-      <el-form-item class="w-64" label="请输入姓名">
-        <el-input v-model="name"></el-input>
-      </el-form-item>
-    </el-form>
-    <div class="w-full h-12">
-      <!-- <div>123</div> -->
-      <div class="float-right w-64 h-12 bg-red-400">123</div>
-    </div>
+  <div class="index">
+    <el-table
+      :data="tableData"
+      border
+      :header-cell-class-name="'table-header-class'"
+    >
+      <el-table-column label="姓名">
+        <template slot-scope="scope">
+          <el-input v-if="scope.row.isEdit" v-model="scope.row.date"></el-input>
+          <span v-else>{{ scope.row.date }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="姓名">
+        <template slot-scope="scope">
+          <el-input v-if="scope.row.isEdit" v-model="scope.row.name"></el-input>
+          <span v-else>{{ scope.row.name }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button @click="editItem(scope.row, scope.$index)">编辑</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-input v-if="tableData[0].isEdit">true</el-input>
+    <span v-else>false</span>
+    <div v-show="tableData[0].isEdit">12312312312</div>
+    <button
+      @click="
+        tableData[0].isEdit = !tableData[0].isEdit
+        num = 100
+      "
+    >
+      Btn
+    </button>
   </div>
 </template>
 
 <script>
-import { debounce, delay } from 'lodash-es'
 export default {
   data() {
-    this.debounce = debounce
+    this.num = 1
     return {
-      cbox1: false,
-      cbox2: false,
-      cbox3: false,
-      name: '',
+      tableData: [
+        {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+          isEdit: false,
+        },
+        {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+          isEdit: false,
+        },
+        {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+        },
+        {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+        },
+        {
+          date: '2016-05-08',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+        },
+        {
+          date: '2016-05-06',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+        },
+        {
+          date: '2016-05-07',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄',
+        },
+      ],
+      columnList: [
+        { prop: 'date', label: '日期', show: true },
+        { prop: 'date', label: '姓名', show: true },
+        { prop: 'date', label: '名称', show: false },
+      ],
     }
   },
+  computed: {
+    columnListShow() {
+      return this.columnList.filter((item) => item.show)
+    },
+  },
   created() {
-    console.log(this)
+    this.tableData.forEach((item) => {
+      console.log(item)
+      this.$set(item, 'isEdit', false)
+    })
+    this.boolean = false
+    // this.tableData = this.tableData.map((item) => (item.isEdit = false))
   },
   methods: {
-    throttleClick() {},
-    debounceClick() {},
-    handleClick() {
-      console.log('do click!', debounce)
-
-      delay(() => {
-        console.log(123)
-      }, 3000)
-      // throttle()
-      // debounce
+    editItem(row, index) {
+      console.log(row, index)
+      this.tableData[index].isEdit = true
     },
+  },
+  updated() {
+    console.log(this.num)
   },
 }
 </script>
 
 <style scoped>
-.wrapper {
-  width: 100%;
-  height: 120px;
-}
-/*  */
-.box {
-  /* width: 100px; */
-  /* height: 100px; */
-}
-.box1 {
-  grid-column: span 2 / span 2;
-  /* grid-column: 1 / 3; */
+.index >>> .table-header-class {
+  background-color: red;
 }
 .box1 {
   top: 10px;
