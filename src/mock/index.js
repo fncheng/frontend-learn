@@ -2,7 +2,11 @@ import Mock from 'mockjs'
 
 Mock.mock('/test', {
   code: 200,
-  data: {
-    'id|+1': 1,
-  },
+  'data|20': [
+    {
+      'id|+1': 1,
+      name: '@cname',
+      'age|1-100': 20,
+    },
+  ],
 })

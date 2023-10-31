@@ -7,9 +7,9 @@ export default {
     console.log(this.$attrs)
     console.log(this.name)
   },
-  render() {
+  render(h) {
     console.log('child has render')
-    return <div>{this.msg}</div>
+    return h('div', { class: 'third-child' }, [h('h3', 'xxxx'), h('p', 'abc')])
   },
 }
 </script>

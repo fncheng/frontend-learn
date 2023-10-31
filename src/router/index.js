@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/Login'
+import store from '@/store'
 // import { getRoutes } from '../api/home'
 
 // async function initRoutes() {
@@ -17,6 +19,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   },
   {
     path: '/about',
@@ -38,7 +45,7 @@ const routes = [
   {
     path: '/third',
     name: 'Third',
-    component: () => import('../views/Third.vue'),
+    component: () => import('../views/ThirdChild.vue'),
   },
   {
     path: '/tailwindcss',
@@ -52,9 +59,25 @@ const router = new VueRouter({
 })
 
 router.addRoute({
-  path: '/some',
+  path: '/some/:id',
   name: 'Some',
   component: () => import('../views/Third.vue'),
 })
-console.log(router.options.routes)
+
+router.beforeEach((to, from, next) => {
+  console.log('to: ', to)
+  // 判断用户是否已登录
+  const isLoggedIn = store.state.isLoggedIn
+  console.log('isLoggedIn: ', isLoggedIn)
+
+  if (!isLoggedIn) {
+    // 需要登录的页面且用户未登录，则跳转到登录页
+    if (to.path !== '/login') {
+      next('/login')
+    } else next()
+  } else {
+    // 用户已登录或不需要登录的页面，直接进入目标页面
+    next()
+  }
+})
 export default router

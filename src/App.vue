@@ -6,11 +6,11 @@
       <router-link to="/iframe">Iframe</router-link> |
       <router-link to="/third">Third</router-link> |
       <router-link to="/tailwindcss">tailwindcss</router-link> |
-      <router-link to="/some">some</router-link>
+      <router-link to="/some">some</router-link> |
+      <el-button size="mini" @click="logout">登出</el-button>
     </div>
     <!-- <i-frame v-if="$route.meta.iframe" :src="$route.meta.url" /> -->
-    <router-view v-if="$route.path === '/about'"></router-view>
-    <keep-alive v-else :include="['About', 'Home', 'Index', 'index']">
+    <keep-alive>
       <router-view></router-view>
     </keep-alive>
     <!-- <iframe
@@ -24,12 +24,12 @@
 </template>
 
 <script>
+import store from './store'
 // import iFrame from './views/iFrame.vue'
 export default {
   name: 'App',
   // components: { iFrame },
   created() {
-    console.log('this in App', this.$router.options.routes)
     if (this.name === 1) {
       console.log(1)
     } else if (this.name === 2) {
@@ -38,6 +38,12 @@ export default {
        */
       console.log(2)
     }
+  },
+  methods: {
+    logout() {
+      store.commit('SET_LOGIN', false)
+      this.$router.push('/login')
+    },
   },
 }
 </script>

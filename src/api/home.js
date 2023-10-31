@@ -15,3 +15,11 @@ export function getTest(data) {
     params: data,
   })
 }
+
+export function getLogin(data) {
+  return $http({
+    url: '/login',
+    method: 'post',
+    data,
+  })
+}
